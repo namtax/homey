@@ -3,4 +3,5 @@ class Project < ApplicationRecord
   validates :name, presence: true
 
   belongs_to :user
+  has_many :comments, primary_key: :id, foreign_key: :project_id
 end

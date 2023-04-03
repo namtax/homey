@@ -1,0 +1,9 @@
+<div>
+  <% @comment = Comment.new %> 
+  <%= form_with model: @comment, url: [@project, @comment] do |form| %>
+    <p>
+      <%= form.text_area :body %>
+    </p>
+    <%= form.submit class: 'px-6 py-3 text-blue-100 no-underline bg-blue-500 hover:bg-blue-600 hover:underline hover:text-blue-200' %>
+  <% end %>
+</div>

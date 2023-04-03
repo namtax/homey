@@ -12,7 +12,7 @@ RSpec.describe ProjectsController do
         expect{ subject }.to change { Project.count }.by(1)
       end
 
-      it 'creates new project' do 
+      it 'redirects to index' do 
         expect(subject).to redirect_to(projects_path)
       end
     end

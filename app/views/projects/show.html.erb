@@ -7,12 +7,17 @@
 </div>
 
 <div class="my-6"> 
-  <h1 class="font-bold text-4xl">History</h1>
+  <h1 class="font-bold text-2xl">History</h1>
+  <dl>
+    <% @project.comments.each do |comment| %> 
+      <dd>Comment: <%= comment.body %> </dd>
+      <dd>Created at: <%= comment.created_at %> </dd>
+      <dd class='mb-4'>Created by: <%= comment.user.name %> </dd>
+    <% end %>
+  </dl>
 </div>
 
 <div class="my-6"> 
-  <h1 class="font-bold text-4xl">Add Comment</h1>
+  <h1 class="font-bold text-2xl">Add Comment</h1>
+  <%= render 'form' %>
 </div>
-
-
-<!-- Use partial for form  -->
