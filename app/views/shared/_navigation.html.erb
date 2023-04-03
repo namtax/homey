@@ -1,3 +1,4 @@
 <div class="container my-6">
   <%= link_to(image_tag("logo.svg"), root_path) %>
+  <%= button_to "logout", destroy_user_session_path, method: :delete if user_signed_in?  %>
 </div>
