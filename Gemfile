@@ -46,7 +46,8 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
 
 # gem "papertrail"
-gem "paper_trail", git: "git@github.com:airblade/paper_trail.git"
+# gem "paper_trail", git: "git@github.com:airblade/paper_trail.git"
+gem "paper_trail", github: "airblade/paper_trail"
 
 gem "devise"
 
