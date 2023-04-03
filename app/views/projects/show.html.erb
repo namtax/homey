@@ -14,10 +14,8 @@
 <div class="my-6"> 
   <h1 class="font-bold text-2xl">History</h1>
   <dl>
-    <% @project.comments.each do |comment| %> 
-      <dd>Comment: <%= comment.body %> </dd>
-      <dd>Created at: <%= comment.created_at %> </dd>
-      <dd class='mb-4'>Created by: <%= comment.user.name %> </dd>
+    <% @history.each do |h| %> 
+      <%= render h.class.table_name.singularize, item: h %>
     <% end %>
   </dl>
 </div>

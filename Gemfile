@@ -45,6 +45,10 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
 
+# gem "papertrail"
+gem "paper_trail", git: "git@github.com:airblade/paper_trail.git"
+
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 

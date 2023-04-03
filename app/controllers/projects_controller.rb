@@ -30,6 +30,7 @@ class ProjectsController < ApplicationController
 
   def show 
     @project = Project.find(params[:id])
+    @history = [*@project.comments, *@project.versions].sort_by(&:created_at)
   end
 
   private 

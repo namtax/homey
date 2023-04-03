@@ -1,3 +1,11 @@
+GIT
+  remote: git@github.com:airblade/paper_trail.git
+  revision: 1fe26c9e445b0bcb2f7c20a5791ec01003632517
+  specs:
+    paper_trail (14.0.0)
+      activerecord (>= 6.0)
+      request_store (~> 1.4)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -177,6 +185,8 @@ GEM
     regexp_parser (2.7.0)
     reline (0.3.3)
       io-console (~> 0.5)
+    request_store (1.5.1)
+      rack (>= 1.4)
     rexml (3.2.5)
     rspec-core (3.12.1)
       rspec-support (~> 3.12.0)
@@ -247,6 +257,7 @@ DEPENDENCIES
   factory_girl_rails
   importmap-rails
   jbuilder
+  paper_trail!
   pg (~> 1.1)
   pry
   puma (~> 5.0)

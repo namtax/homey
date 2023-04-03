@@ -4,4 +4,6 @@ class Project < ApplicationRecord
 
   belongs_to :user
   has_many :comments, primary_key: :id, foreign_key: :project_id
+
+  has_paper_trail only: [:status]
 end
