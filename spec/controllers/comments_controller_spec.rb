@@ -7,6 +7,10 @@ RSpec.describe CommentsController do
     let(:user)    { create(:user) }
     let(:params)  { { project_id: project.id, comment: { body: 'New comment' } } }
 
+    before do 
+      sign_in user
+    end 
+
     it 'creates comment for project' do 
       expect{ subject }.to change { Comment.count }.by(1)
     end

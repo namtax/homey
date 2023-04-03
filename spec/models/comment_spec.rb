@@ -3,8 +3,8 @@ require 'rails_helper'
 RSpec.describe Comment do 
   subject       { described_class.new(params) }
   let(:params)  { { body: 'new comment', user: user, project: project } }
-  let(:user)    { User.create(first_name: 'john', last_name: 'smith', email: "johns@googlemail.com", password_digest: '12396x') }
-  let(:project) { Project.create(name: 'ProjectX', user_id: user.id) }
+  let(:user)    { create(:user) }
+  let(:project) { create(:project, user:) }
 
   describe '.create' do
     context 'valid params' do 

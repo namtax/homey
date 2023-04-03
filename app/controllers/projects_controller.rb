@@ -1,4 +1,6 @@
 class ProjectsController < ApplicationController
+  before_action :authenticate
+
   def index
     @projects = Project.all
   end
@@ -8,7 +10,7 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    @project = Project.new(valid_params.merge(user_id: User.last.id))
+    @project = Project.new(valid_params.merge(user_id: current_user.id))
 
     respond_to do |format|
       if @project.save
@@ -30,11 +32,15 @@ class ProjectsController < ApplicationController
 
   def show 
     @project = Project.find(params[:id])
-    @history = [*@project.comments, *@project.versions].sort_by(&:created_at)
+    @history = [*@project.comments, *@project.versions.where.not(object_changes: nil)].sort_by(&:created_at)
   end
 
   private 
   def valid_params
     params.require(:project).permit(:name, :status)
+  end
+
+  def authenticate
+    authenticate_user!
   end
 end

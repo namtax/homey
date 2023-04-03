@@ -1,7 +1,8 @@
 class CommentsController < ApplicationController
+  
   def create
     project  = Project.find(params[:project_id])
-    comment  = project.comments.build(valid_params.merge(user_id: User.last.id))
+    comment  = project.comments.build(valid_params.merge(user_id: current_user.id))
 
     respond_to do |format|
       if comment.save

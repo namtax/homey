@@ -3,7 +3,11 @@ require 'rails_helper'
 RSpec.describe ProjectsController do 
   describe '#POST projects#create' do 
     subject     { post :create, params: params }
-    let!(:user) { User.create(first_name: 'john', last_name: 'smith', email: "j@googlemail.com", password_digest: '999') }
+    let!(:user) { create(:user) }
+
+    before do 
+      sign_in user
+    end
 
     context 'valid params' do 
       let(:params) { { project: { name: 'ProjectX' } } }
@@ -20,8 +24,12 @@ RSpec.describe ProjectsController do
 
   describe '#POST projects#update' do 
     subject        { post :update, params: params }
-    let!(:user)    { User.create(first_name: 'john', last_name: 'smith', email: "j@googlemail.com", password_digest: '999') }
+    let!(:user)    { create(:user) }
     let!(:project) { create(:project, user:) }
+
+    before do 
+      sign_in user
+    end
 
     context 'valid params' do 
       let(:params) { { id: project.id, project: { status: 'completed' } } }

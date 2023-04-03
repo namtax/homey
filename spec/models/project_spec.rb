@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Project do 
   subject      { described_class.new(params) }
   let(:params) { { name: 'ProjectX', user_id: user.id } }
-  let(:user)   { User.create(first_name: 'John', last_name: 'Smith', email: 'j@googlemail.com', password_digest: '99xass')}
+  let(:user)   { create(:user) }
 
   describe '.create' do
     context 'valid params' do 

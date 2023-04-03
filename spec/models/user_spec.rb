@@ -7,7 +7,7 @@ RSpec.describe User do
       first_name: 'john', 
       last_name: 'smith', 
       email: 'jsmith@googlemail.com', 
-      password_digest: '1239999xxx'
+      password: 'testpassword'
     }
   end
 
@@ -50,7 +50,7 @@ RSpec.describe User do
 
     context 'password missing' do 
       before do 
-        params.delete(:password_digest)
+        params.delete(:password)
       end
 
       it 'is invalid' do 
