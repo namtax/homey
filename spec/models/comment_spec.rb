@@ -42,5 +42,15 @@ RSpec.describe Comment do
         expect(subject).to_not be_valid
       end
     end
+
+    context 'body empty' do 
+      before do 
+        params[:body] = ""
+      end
+
+      it 'is invalid' do 
+        expect(subject).to_not be_valid
+      end
+    end
   end
 end

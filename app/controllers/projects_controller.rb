@@ -17,12 +17,23 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def update
+    project = Project.find(params[:id])
+    project.assign_attributes(valid_params)
+
+    respond_to do |format|
+      if project.save
+        format.html { redirect_to project_path(project), notice: "#{project.name} updated successfully" }
+      end
+    end
+  end
+
   def show 
     @project = Project.find(params[:id])
   end
 
   private 
   def valid_params
-    params.require(:project).permit(:name)
+    params.require(:project).permit(:name, :status)
   end
 end
