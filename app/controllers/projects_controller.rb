@@ -8,7 +8,7 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    @project = Project.new(valid_params)
+    @project = Project.new(valid_params.merge(user_id: User.last.id))
 
     respond_to do |format|
       if @project.save

@@ -3,4 +3,8 @@ class User < ApplicationRecord
   validates :last_name, presence: true
   validates :email, presence: true
   validates :password_digest, presence: true
+
+  def name 
+    [first_name, last_name].join(' ')
+  end
 end

@@ -1,17 +1,17 @@
 require "rails_helper"
 
-RSpec.describe User do 
-  describe '.create' do
-    subject { described_class.new(params) }
-    let(:params) do 
-      { 
-        first_name: 'john', 
-        last_name: 'smith', 
-        email: 'jsmith@googlemail.com', 
-        password_digest: '1239999xxx'
-      }
-    end
+RSpec.describe User do
+  subject { described_class.new(params) }
+  let(:params) do 
+    { 
+      first_name: 'john', 
+      last_name: 'smith', 
+      email: 'jsmith@googlemail.com', 
+      password_digest: '1239999xxx'
+    }
+  end
 
+  describe '.create' do
     context 'valid params' do 
       it 'is valid' do 
         expect{ subject.save }.to change{ User.count }.by(1)
@@ -56,6 +56,12 @@ RSpec.describe User do
       it 'is invalid' do 
         expect(subject).to_not be_valid
       end
+    end
+  end
+
+  describe '#name' do 
+    it 'concatenates first and last name' do 
+      expect(subject.name).to eq('john smith')
     end
   end
 end
